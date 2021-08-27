@@ -99,12 +99,12 @@ export const postMessage = (body) =>async (dispatch) => {
 
     if (!body.conversationId) {
       dispatch(addConversation(body.recipientId, data.message));
-      dispatch(fetchConversations())
+      // dispatch(fetchConversations())
     } else {
       dispatch(setNewMessage(data.message));
     }
 
-    await sendMessage(data, body);
+    sendMessage(data, body);
     dispatch(fetchConversations())
   } catch (error) {
     console.error(error);
